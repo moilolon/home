@@ -28,7 +28,7 @@ that lives under it.
 ## 📁 Structure
 
 ```text
-moilolon.com/
+home/
 ├── 🏠 index.html     The page
 ├── 🎨 styles.css     Dark and light themes, the card grid, the backdrop
 ├── 🧩 main.js        Theme, language and the texts in English and Spanish
