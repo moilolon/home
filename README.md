@@ -15,14 +15,13 @@
 
 ## ✨ What this is
 
-A single static page at the root of the domain. It says who I am in one line and
-links to the rest:
+A single static page at the root of the domain. It is only a way in: a card per site
+that lives under it.
 
 | | Site | What it is |
 |---|---|---|
 | 👨🏻‍💻 | [portfolio.moilolon.com](https://portfolio.moilolon.com) | Experience, projects and a contact form |
 | 📊 | [dashboard.moilolon.com](https://dashboard.moilolon.com) | Dashboards of home data |
-| 🐙 | [github.com/moilolon](https://github.com/moilolon) | The code, and the open source tools |
 
 ---
 
@@ -46,8 +45,8 @@ moilolon.com/
   switches it. The choice is saved in the browser.
 - **English and Spanish.** It starts in the language of the browser. Every text lives
   in `main.js`, once per language, and the HTML asks for it with `data-i18n`.
-- **Adding a link** is a new `<a class="card">` in `index.html` and its texts in
-  `main.js`. `wide`, `tall` and `half` set how much of the grid it takes.
+- **Adding a site** is a new `<a class="card">` in `index.html` and its texts in
+  `main.js`. `half` and `tall` set how much of the grid it takes.
 
 To try it locally:
 
