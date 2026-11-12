@@ -1,0 +1,58 @@
+<div align="center">
+
+# 🏠 moilolon.com
+
+**My home page: one place that links to everything I make**
+
+[![Open the site](https://img.shields.io/badge/Open%20the%20site-moilolon.com-8B7BFF?style=for-the-badge&logo=vercel&logoColor=white)](https://moilolon.com/)
+
+[![No build](https://img.shields.io/badge/HTML%20%C2%B7%20CSS%20%C2%B7%20JS-no%20build-E34F26?style=for-the-badge&logo=html5&logoColor=white)](#-how-it-works)
+[![Vercel](https://img.shields.io/badge/Hosted%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
+
+</div>
+
+---
+
+## ✨ What this is
+
+A single static page at the root of the domain. It says who I am in one line and
+links to the rest:
+
+| | Site | What it is |
+|---|---|---|
+| 👨🏻‍💻 | [portfolio.moilolon.com](https://portfolio.moilolon.com) | Experience, projects and a contact form |
+| 📊 | [dashboard.moilolon.com](https://dashboard.moilolon.com) | Dashboards of home data |
+| 🐙 | [github.com/moilolon](https://github.com/moilolon) | The code, and the open source tools |
+
+---
+
+## 📁 Structure
+
+```text
+moilolon.com/
+├── 🏠 index.html     The page
+├── 🎨 styles.css     Dark and light themes, the card grid, the backdrop
+├── 🧩 main.js        Theme, language and the texts in English and Spanish
+└── 🖼️ favicon.svg
+```
+
+---
+
+## 🚀 How it works
+
+- **No build and no dependencies.** What is on the `main` branch is the site; Vercel
+  serves the files as they are. The only thing loaded from outside is the Geist font.
+- **Dark and light.** It starts in the theme of the system and the button at the top
+  switches it. The choice is saved in the browser.
+- **English and Spanish.** It starts in the language of the browser. Every text lives
+  in `main.js`, once per language, and the HTML asks for it with `data-i18n`.
+- **Adding a link** is a new `<a class="card">` in `index.html` and its texts in
+  `main.js`. `wide`, `tall` and `half` set how much of the grid it takes.
+
+To try it locally:
+
+```bash
+python -m http.server 8766
+```
+
+Then open `http://localhost:8766/`.
