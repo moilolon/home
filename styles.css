@@ -157,9 +157,9 @@ h1 .caret { display: inline-block; width: 0.5em; height: 0.09em; margin-left: 0.
 /* Footer */
 
 footer a:hover { color: var(--text); }
-footer .github { display: inline-flex; align-items: center; gap: 7px; }
-footer .github svg { width: 15px; height: 15px; fill: currentColor; }
-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; padding: 22px 0 30px; border-top: 1px solid var(--border); color: var(--text-3); font-size: 13px; }
+footer .github { display: inline-flex; }
+footer .github svg { width: 20px; height: 20px; fill: currentColor; }
+footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px; padding: 22px 0 30px; border-top: 1px solid var(--border); color: var(--text-3); font-size: 13px; }
 .mono { font-family: var(--mono); font-size: 12px; }
 
 /* The page comes in softly, one piece after another. */
