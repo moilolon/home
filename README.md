@@ -41,6 +41,8 @@ home/
 
 - **No build and no dependencies.** What is on the `main` branch is the site; Vercel
   serves the files as they are. The only thing loaded from outside is the Geist font.
+- **Visits and speed.** The page loads Vercel Web Analytics and Speed Insights, which
+  are enabled per project in Vercel.
 - **Dark and light.** It starts in the theme of the system and the button at the top
   switches it. The choice is saved in the browser.
 - **English and Spanish.** It starts in the language of the browser. Every text lives
