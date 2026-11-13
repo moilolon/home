@@ -46,6 +46,10 @@ home/
   are enabled per project in Vercel.
 - **Dark and light.** It starts in the theme of the system and the button at the top
   switches it. The choice is saved in the browser.
+- **Shared with the other sites.** Theme and language are also kept in two cookies of
+  the whole domain, `moilolon-theme` (`light`, `dark`) and `moilolon-lang` (`en`, `es`),
+  so a choice made in one site holds in the others. Each site reads them before its own
+  saved settings and writes them when the visitor changes one.
 - **English and Spanish.** It starts in the language of the browser. Every text lives
   in `main.js`, once per language, and the HTML asks for it with `data-i18n`.
 - **Adding a site** is a new `<a class="card">` in `index.html`, its texts in

@@ -23,11 +23,23 @@ const STRINGS = {
   },
 };
 
+// Theme and language are shared with the other sites under moilolon.com through two
+// cookies of the whole domain, moilolon-theme (light, dark) and moilolon-lang (en, es).
+// The cookie wins over what this browser saved for this site alone; away from the
+// domain (trying it locally) only the browser storage is used.
+const SHARED = /(^|\.)moilolon\.com$/.test(location.hostname);
+
+function cookie(key) {
+  const found = document.cookie.match(new RegExp(`(?:^|; )moilolon-${key}=([^;]*)`));
+  return found ? found[1] : null;
+}
+
 function stored(key) {
-  try { return localStorage.getItem(key); } catch (error) { return null; }
+  try { return cookie(key) || localStorage.getItem(key); } catch (error) { return null; }
 }
 
 function store(key, value) {
+  if (SHARED) document.cookie = `moilolon-${key}=${value}; domain=.moilolon.com; path=/; max-age=31536000; samesite=lax; secure`;
   try { localStorage.setItem(key, value); } catch (error) { /* no storage: it holds for this visit only */ }
 }
 
