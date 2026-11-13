@@ -100,8 +100,10 @@ moilolon-nav { font: 500 14px var(--mono); color: var(--text-2); --moilolon-nav-
 
 /* Hero */
 
-main { flex: 1; }
-.hero { padding: clamp(40px, 9vw, 104px) 0 clamp(36px, 6vw, 68px); }
+/* The content sits in the middle of what the top bar and the footer leave free; when it
+   does not fit, as on a phone, it simply starts at the top. */
+main { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: clamp(24px, 5vw, 56px) 0; }
+.hero { padding: 0 0 clamp(36px, 6vw, 68px); }
 
 h1 { margin: 0; font: 600 clamp(44px, 11vw, 132px)/1 var(--mono); letter-spacing: -0.06em; white-space: nowrap; }
 h1 .at { color: var(--text-3); }
@@ -111,7 +113,7 @@ h1 .caret { display: inline-block; width: 0.5em; height: 0.09em; margin-left: 0.
 
 /* Bento */
 
-.bento { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; padding-bottom: 64px; }
+.bento { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
 
 .card {
   --x: 50%; --y: 0px;
