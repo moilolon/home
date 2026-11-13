@@ -32,6 +32,7 @@ home/
 ├── 🏠 index.html     The page
 ├── 🎨 styles.css     Dark and light themes, the card grid, the backdrop
 ├── 🧩 main.js        Theme, language and the texts in English and Spanish
+├── 🧭 nav.js         The site switcher every site under the domain loads
 └── 🖼️ favicon.svg
 ```
 
@@ -47,8 +48,22 @@ home/
   switches it. The choice is saved in the browser.
 - **English and Spanish.** It starts in the language of the browser. Every text lives
   in `main.js`, once per language, and the HTML asks for it with `data-i18n`.
-- **Adding a site** is a new `<a class="card">` in `index.html` and its texts in
-  `main.js`. `half` and `tall` set how much of the grid it takes.
+- **Adding a site** is a new `<a class="card">` in `index.html`, its texts in
+  `main.js` and its entry in the `SITES` list of `nav.js`. `half` and `tall` set how
+  much of the grid it takes.
+- **One switcher for every site.** `nav.js` defines the `<moilolon-nav>` element: the
+  name of the current site, which opens the list of all of them. The other sites load
+  it from here, so a change to the list reaches them with nothing to publish there:
+
+  ```html
+  <script src="https://moilolon.com/nav.js" defer></script>
+  <moilolon-nav current="dashboard"><a href="/">Dashboards</a></moilolon-nav>
+  ```
+
+  `current` is the id of the site in `SITES`, and what is written inside shows if the
+  file does not load. The text colour is inherited and the panel follows the page's
+  `color-scheme`; `--moilolon-nav-surface`, `--moilolon-nav-text` and
+  `--moilolon-nav-border` set them by hand.
 
 To try it locally:
 

@@ -17,11 +17,14 @@
   <link rel="stylesheet" href="styles.css">
   <!-- Theme and language are applied before the first paint, so the page does not flash. -->
   <script src="main.js"></script>
+  <script src="nav.js" defer></script>
 </head>
 <body>
   <div class="backdrop" aria-hidden="true"><span class="glow one"></span><span class="glow two"></span><span class="mesh"></span></div>
 
   <header class="top">
+    <!-- The site switcher shared with the other sites: nav.js. -->
+    <moilolon-nav current="home"><a href="/">moilolon</a></moilolon-nav>
     <nav class="controls">
       <div class="switch" id="lang" role="group" data-i18n-label="language">
         <button data-lang="en">EN</button>
@@ -39,7 +42,7 @@
       <h1 aria-label="moilolon"><span class="at">~/</span><em>moilolon</em><span class="caret"></span></h1>
     </section>
 
-    <!-- A new site is a new card here and its texts in main.js. -->
+    <!-- A new site is a new card here, its texts in main.js and its entry in nav.js. -->
     <section class="bento" data-i18n-label="sites">
       <a class="card half tall" href="https://portfolio.moilolon.com">
         <div class="art portfolio" aria-hidden="true">
