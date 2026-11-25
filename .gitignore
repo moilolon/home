@@ -1,2 +1,4 @@
 .vercel
 .env*
+# Worktrees of agent sessions and Orca workspaces
+.claude/worktrees/
