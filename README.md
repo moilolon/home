@@ -1,6 +1,6 @@
 <div align="center">
 
-# <img src="assets/icon.png" alt="" width="40" align="center"> moilolon.com
+# <img src="assets/icon.png" alt="" width="40" align="absmiddle"> moilolon.com
 
 **My home page: one place that links to everything I make**
 
