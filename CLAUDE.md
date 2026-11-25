@@ -15,6 +15,8 @@ The details below are for Claude.
 - Theme and language are kept in the domain cookies `moilolon-theme` (`light`, `dark`) and
   `moilolon-lang` (`en`, `es`); every site reads them before its own saved settings and writes
   them on a change.
+- `assets/cover.png` is the README cover, drawn from shapes by `assets/draw-cover.ps1`
+  (`powershell -NoProfile -File assets/draw-cover.ps1`); redraw it when what it shows changes.
 - **Adding a site:** its card in `index.html`, its texts in `main.js` and its entry in the
   `SITES` list of `nav.js`.
 

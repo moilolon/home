@@ -9,6 +9,8 @@
 [![No build](https://img.shields.io/badge/HTML%20%C2%B7%20CSS%20%C2%B7%20JS-no%20build-E34F26?style=for-the-badge&logo=html5&logoColor=white)](#-how-it-works)
 [![Vercel](https://img.shields.io/badge/Hosted%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
+<img src="assets/cover.png" alt="The site name beside a page with a card per site" width="820">
+
 </div>
 
 ---
