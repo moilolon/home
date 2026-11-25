@@ -15,8 +15,9 @@ The details below are for Claude.
 - Theme and language are kept in the domain cookies `moilolon-theme` (`light`, `dark`) and
   `moilolon-lang` (`en`, `es`); every site reads them before its own saved settings and writes
   them on a change.
-- `assets/cover.png` is the README cover, drawn from shapes by `assets/draw-cover.ps1`
-  (`powershell -NoProfile -File assets/draw-cover.ps1`); redraw it when what it shows changes.
+- `assets/draw-images.ps1` (`powershell -NoProfile -File assets/draw-images.ps1`) draws, from
+  shapes, the README cover (`cover.png`), the icon (`icon.png`, also the project's icon in
+  Orca) and the GitHub social preview (`social-preview.png`, uploaded by hand in Settings); redraw it when what it shows changes.
 - **Adding a site:** its card in `index.html`, its texts in `main.js` and its entry in the
   `SITES` list of `nav.js`.
 
