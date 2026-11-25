@@ -1,8 +1,35 @@
 # moilolon.com — Project Memory
 
 Static home page at the root of the domain, served by Vercel from `main` with no build step. It
-also serves `nav.js`, the site switcher every site under the domain loads. What each file does is
-in `README.md`.
+also serves `nav.js`, the site switcher every site under the domain loads.
+
+`README.md` is the cover for visitors, laid out like every moilolon repo: *What this is*, *How
+it works*, *Getting started* and the shared footer, with no folder tree, long code or roadmap.
+The details below are for Claude.
+
+## Structure
+
+- `index.html` (the page, a `<a class="card">` per site; `half` and `tall` set how much of the
+  grid it takes), `styles.css`, `main.js` (theme, language and every text, once per language,
+  asked for with `data-i18n`), `nav.js`, `favicon.svg`.
+- Theme and language are kept in the domain cookies `moilolon-theme` (`light`, `dark`) and
+  `moilolon-lang` (`en`, `es`); every site reads them before its own saved settings and writes
+  them on a change.
+- **Adding a site:** its card in `index.html`, its texts in `main.js` and its entry in the
+  `SITES` list of `nav.js`.
+
+## `nav.js`
+
+Defines `<moilolon-nav>`, loaded by every site from `https://moilolon.com/nav.js`:
+
+```html
+<script src="https://moilolon.com/nav.js" defer></script>
+<moilolon-nav current="dashboard"><a href="/">Dashboards</a></moilolon-nav>
+```
+
+`current` is the site's id in `SITES`; the inner content shows if the file does not load. Text
+colour is inherited and the panel follows the page's `color-scheme`; `--moilolon-nav-surface`,
+`--moilolon-nav-text` and `--moilolon-nav-border` override them.
 
 ## Git
 

@@ -15,8 +15,8 @@
 
 ## ✨ What this is
 
-A single static page at the root of the domain. It is only a way in: a card per site
-that lives under it.
+A single static page at the root of the domain. It is only a way in: a card per site that
+lives under it.
 
 | | Site | What it is |
 |---|---|---|
@@ -25,54 +25,31 @@ that lives under it.
 
 ---
 
-## 📁 Structure
+## 🧭 How it works
 
-```text
-home/
-├── 🏠 index.html     The page
-├── 🎨 styles.css     Dark and light themes, the card grid, the backdrop
-├── 🧩 main.js        Theme, language and the texts in English and Spanish
-├── 🧭 nav.js         The site switcher every site under the domain loads
-└── 🖼️ favicon.svg
-```
+- **No build and no dependencies.** What is on `main` is the site; Vercel serves the
+  files as they are, with Web Analytics and Speed Insights.
+- **Dark and light, English and Spanish.** It starts with the system's theme and the
+  browser's language. Both choices are kept in two cookies of the whole domain, so a
+  choice made in one site holds in the others.
+- **One switcher for every site.** `nav.js` defines the `<moilolon-nav>` element, the list
+  of every site under the domain. The other sites load it from here, so a new site
+  reaches all of them with nothing to publish there.
+- **Adding a site** is a card in `index.html`, its texts in `main.js` and its entry in
+  `nav.js`.
 
 ---
 
-## 🚀 How it works
-
-- **No build and no dependencies.** What is on the `main` branch is the site; Vercel
-  serves the files as they are. The only thing loaded from outside is the Geist font.
-- **Visits and speed.** The page loads Vercel Web Analytics and Speed Insights, which
-  are enabled per project in Vercel.
-- **Dark and light.** It starts in the theme of the system and the button at the top
-  switches it. The choice is saved in the browser.
-- **Shared with the other sites.** Theme and language are also kept in two cookies of
-  the whole domain, `moilolon-theme` (`light`, `dark`) and `moilolon-lang` (`en`, `es`),
-  so a choice made in one site holds in the others. Each site reads them before its own
-  saved settings and writes them when the visitor changes one.
-- **English and Spanish.** It starts in the language of the browser. Every text lives
-  in `main.js`, once per language, and the HTML asks for it with `data-i18n`.
-- **Adding a site** is a new `<a class="card">` in `index.html`, its texts in
-  `main.js` and its entry in the `SITES` list of `nav.js`. `half` and `tall` set how
-  much of the grid it takes.
-- **One switcher for every site.** `nav.js` defines the `<moilolon-nav>` element: the
-  name of the current site, which opens the list of all of them. The other sites load
-  it from here, so a change to the list reaches them with nothing to publish there:
-
-  ```html
-  <script src="https://moilolon.com/nav.js" defer></script>
-  <moilolon-nav current="dashboard"><a href="/">Dashboards</a></moilolon-nav>
-  ```
-
-  `current` is the id of the site in `SITES`, and what is written inside shows if the
-  file does not load. The text colour is inherited and the panel follows the page's
-  `color-scheme`; `--moilolon-nav-surface`, `--moilolon-nav-text` and
-  `--moilolon-nav-border` set them by hand.
-
-To try it locally:
+## 🚀 Getting started
 
 ```bash
 python -m http.server 8766
 ```
 
 Then open `http://localhost:8766/`.
+
+---
+
+<div align="center">
+<sub><a href="https://moilolon.com">moilolon.com</a> · <a href="https://github.com/moilolon">@moilolon</a></sub>
+</div>
