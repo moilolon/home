@@ -1,4 +1,4 @@
-name: checks
+name: Run the checks
 
 # What a pull request must pass: the job "checks" is the status the main ruleset requires. The
 # scripts parse (nav.js is loaded by every site under moilolon.com) and the local links and files
