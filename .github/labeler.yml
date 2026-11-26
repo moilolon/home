@@ -1,0 +1,25 @@
+# Labels a pull request by the files it changes (.github/workflows/labeler.yml). Each key is a
+# label of the repository (the common ones come from workbench's reference); a label for a part
+# of this repo goes here with its folders. Labels about what a change is for are put by hand.
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/README.md"
+          - "**/CLAUDE.md"
+          - "docs/**"
+          - ".claude/**"
+
+ci:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/**"
+
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "package.json"
+          - "package-lock.json"
+          - ".npmrc"
+          - "requirements*.txt"
+          - "pyproject.toml"

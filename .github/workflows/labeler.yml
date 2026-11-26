@@ -1,0 +1,33 @@
+name: Label pull requests
+
+# Every pull request is labelled by the files it changes (.github/labeler.yml) and assigned to
+# the owner. pull_request and not pull_request_target: the workflow and labeler.yml are read from
+# the pull request itself, so a change to either is seen working before it is merged.
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  label:
+    # The token of a pull request opened by Dependabot cannot write labels or assignees, and
+    # Dependabot already puts its own labels and the assignee of dependabot.yml.
+    if: github.event.pull_request.user.login != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/labeler@v7
+        with:
+          # Only adds: a label put by hand stays when later commits touch other files
+          sync-labels: false
+
+      - name: Assign the owner
+        if: github.event.action != 'synchronize'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.html_url }}
+          OWNER: ${{ github.repository_owner }}
+        run: gh pr edit "$PR" --add-assignee "$OWNER"
