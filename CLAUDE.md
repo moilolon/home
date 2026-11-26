@@ -20,6 +20,9 @@ The details below are for Claude.
   Orca) and the GitHub social preview (`social-preview.png`, uploaded by hand in Settings); redraw it when what it shows changes.
 - **Adding a site:** its card in `index.html`, its texts in `main.js` and its entry in the
   `SITES` list of `nav.js`.
+- `.github/workflows/checks.yml` (job `checks`, the status the `main` ruleset requires) runs on
+  every pull request: `node --check` on the scripts and lychee `--offline` on the local links and
+  files of `index.html`, `nav.js` and the README.
 - `.github/workflows/links.yml` checks with lychee that the links of `index.html`, `nav.js` and
   the README still answer: on the 1st of each month and on a pull request that touches them. A
   link that cannot be checked (a request-only host) goes in its `--exclude` list. A 429 counts
