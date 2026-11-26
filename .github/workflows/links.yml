@@ -22,9 +22,13 @@ jobs:
 
       - uses: lycheeverse/lychee-action@v2
         with:
-          # localhost is the README's dev server; the font hosts only answer a stylesheet request
+          # localhost is the README's dev server; the font hosts only answer a stylesheet request.
+          # Vercel's bot checkpoint answers 429 to the runners on the moilolon.com sites: the site
+          # is up, so 429 counts as an answer (a dead link still fails on DNS, TLS or a 404).
           args: >-
             --no-progress
+            --accept "200..=299,429"
+            --max-retries 1
             --root-dir "${{ github.workspace }}"
             --exclude "^https?://localhost"
             --exclude "^https://fonts\.(googleapis|gstatic)\.com/?$"

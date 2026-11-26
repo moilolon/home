@@ -22,7 +22,8 @@ The details below are for Claude.
   `SITES` list of `nav.js`.
 - `.github/workflows/links.yml` checks with lychee that the links of `index.html`, `nav.js` and
   the README still answer: on the 1st of each month and on a pull request that touches them. A
-  link that cannot be checked (a request-only host) goes in its `--exclude` list.
+  link that cannot be checked (a request-only host) goes in its `--exclude` list. A 429 counts
+  as an answer: Vercel's bot checkpoint gives it to the runners on the moilolon.com sites.
 
 ## `nav.js`
 
