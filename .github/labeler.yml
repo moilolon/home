@@ -1,14 +1,19 @@
-# Labels a pull request by the files it changes (.github/workflows/labeler.yml). Each key is a
-# label of the repository (the common ones come from workbench's reference); a label for a part
-# of this repo goes here with its folders. Labels about what a change is for are put by hand.
+# Labels a pull request by the files it changes and by its branch (.github/workflows/labeler.yml).
+# Each key is a label of the repository (the common ones come from workbench's reference); a label
+# for a part of this repo goes here with its folders. The branch gives the type, as the Git
+# conventions name branches (<type>/<description>). Top-level entries of a label are AND-ed:
+# alternatives go inside "any".
 
 documentation:
-  - changed-files:
-      - any-glob-to-any-file:
-          - "**/README.md"
-          - "**/CLAUDE.md"
-          - "docs/**"
-          - ".claude/**"
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "**/README.md"
+              - "**/CLAUDE.md"
+              - "docs/**"
+              - ".claude/**"
+              - "LICENSE"
+      - head-branch: ["^docs/"]
 
 ci:
   - changed-files:
@@ -23,3 +28,12 @@ dependencies:
           - ".npmrc"
           - "requirements*.txt"
           - "pyproject.toml"
+
+bug:
+  - head-branch: ["^bugfix/", "^hotfix/"]
+
+enhancement:
+  - head-branch: ["^feature/"]
+
+release:
+  - head-branch: ["^chore/bump-version-"]
