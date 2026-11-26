@@ -1,0 +1,32 @@
+name: links
+
+# The links of the home page and its README still lead somewhere: the other sites under
+# moilolon.com, GitHub and the badges. Monthly, since they break from outside, and on a pull
+# request that touches a file with links. A scheduled failure comes by GitHub's email.
+on:
+  schedule:
+    - cron: "17 6 1 * *"
+  pull_request:
+    paths: ["index.html", "nav.js", "README.md", ".github/workflows/links.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          # localhost is the README's dev server; the font hosts only answer a stylesheet request
+          args: >-
+            --no-progress
+            --root-dir "${{ github.workspace }}"
+            --exclude "^https?://localhost"
+            --exclude "^https://fonts\.(googleapis|gstatic)\.com/?$"
+            index.html nav.js README.md
+          fail: true
