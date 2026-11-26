@@ -44,3 +44,6 @@ colour is inherited and the panel follows the page's `color-scheme`; `--moilolon
 - **Pull requests:** title like a commit; body with *What changes*, *Why* and *How to check it*.
   A change to `nav.js` reaches every site under the domain: say so in the body. Merged by
   squash, with the PR title and body as the commit.
+- **`gh`:** always as `GH_TOKEN=$(gh auth token --user moilolon) gh …`, command by command. gh's
+  active account is the work one, which must not act on this repo; do not switch it. `git`
+  already uses `moilolon` through the `includeIf` of `C:/Developer/PERSONAL/`.
