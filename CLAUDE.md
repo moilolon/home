@@ -45,7 +45,8 @@ colour is inherited and the panel follows the page's `color-scheme`; `--moilolon
   not obvious: a blank line, then lines wrapped at 72. No `Co-Authored-By` or other attribution.
 - **Branches:** `<type>/<short-description>`, lowercase kebab-case, off `main`. Types: `feature`,
   `bugfix`, `docs`, `style`, `refactor`, `chore`.
-- **Pull requests:** title like a commit; body with *What changes*, *Why* and *How to check it*.
+- **Pull requests:** title like a commit; body with *What changes*, *Why* and *How to check it*;
+  assigned to `moilolon` (the labeler workflow does it if missing, and Dependabot's come assigned).
   A change to `nav.js` reaches every site under the domain: say so in the body. Merged by
   squash, with the PR title and body as the commit.
 - **`gh`:** always as `GH_TOKEN=$(gh auth token --user moilolon) gh …`, command by command. gh's
