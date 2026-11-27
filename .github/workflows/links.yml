@@ -24,11 +24,14 @@ jobs:
         with:
           # localhost is the README's dev server; the font hosts only answer a stylesheet request.
           # Vercel's bot checkpoint answers 429 to the runners on the moilolon.com sites: the site
-          # is up, so 429 counts as an answer (a dead link still fails on DNS, TLS or a 404).
+          # is up, so 429 counts as an answer (a dead link still fails on DNS, TLS or a 404). A slow
+          # host (the badges) gets 30 s and three retries before a timeout counts as a failure.
           args: >-
             --no-progress
             --accept "200..=299,429"
-            --max-retries 1
+            --timeout 30
+            --max-retries 3
+            --retry-wait-time 5
             --root-dir "${{ github.workspace }}"
             --exclude "^https?://localhost"
             --exclude "^https://fonts\.(googleapis|gstatic)\.com/?$"
